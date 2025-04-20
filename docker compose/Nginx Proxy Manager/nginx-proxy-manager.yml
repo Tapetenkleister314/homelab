@@ -1,11 +1,11 @@
 services:
   nginx-proxy-manager:
-    container_name: nginx-proxy-manager
+    container_name: nginx_proxy_manager
     image: 'jc21/nginx-proxy-manager:latest'
     networks:
-      nginx-proxy-manager:
-         ipv4_address: 10.0.0.90 #Change this to a static on your network
-      proxy-network:
+      nginx_proxy_manager:
+         ipv4_address: 192.168.178.203 #Change this to a static on your network
+      proxy_network:
     restart: unless-stopped
 #    ports:  # Ports not used when using docker macvlan network
       # These ports are in format <host-port>:<container-port>
@@ -29,9 +29,9 @@ services:
 #      - CHANGE_TO_COMPOSE_DATA_PATH/nginx-proxy-manager/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - CHANGE_TO_COMPOSE_DATA_PATH/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
 networks:
-  nginx-proxy-manager:
-    name: local-network
+  nginx_proxy_manager:
+    name: local_network
     external: true
-  proxy-network:
-    name: proxy-network
+  proxy_network:
+    name: proxy_network
     external: true
