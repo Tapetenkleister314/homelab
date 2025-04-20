@@ -1,3 +1,5 @@
+Name:proxy_network
+Driver:bridge
 Subnet:192.168.179.0/24 #submask of unused ip-range
 IPRange:192.168.179.0/24 #prefix-size (/24) defines amount of alocated ips to ip-range
 Gateway:192.168.179.1 #1. ip of unused ip-range
