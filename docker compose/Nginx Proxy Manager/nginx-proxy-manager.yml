@@ -4,7 +4,7 @@ services:
     image: 'jc21/nginx-proxy-manager:latest'
     networks:
       nginx_proxy_manager:
-         ipv4_address: 192.168.178.203 #Change this to a static on your network
+         ipv4_address: 192.168.178.203 #Change this to a static on your network | default-user: admin@example.com default-password: changeme
       proxy_network:
     restart: unless-stopped
 #    ports:  # Ports not used when using docker macvlan network
