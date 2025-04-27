@@ -31,9 +31,9 @@ services:
 
     networks:
       default:
-        ipv4_address: 192.168.0.37
+        ipv4_address: 192.168.178.207
     volumes:
-      - /volume1/docker/paperless/redis:/usr/local/etc/redis
+      - CHANGE_TO_COMPOSE_DATA_PATH/paperless/redis:/usr/local/etc/redis
 
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
@@ -44,28 +44,28 @@ services:
       - gotenberg
       - tika
     ports:
-      - 8000:8000
+      - 8010:8000
     volumes:
-      - /volume1/docker/paperless/data:/usr/src/paperless/data
-      - /volume1/docker/paperless/media:/usr/src/paperless/media
-      - /volume1/docker/paperless/export:/usr/src/paperless/export
-      - /volume1/docker/paperless/consume:/usr/src/paperless/consume
+      - CHANGE_TO_COMPOSE_DATA_PATH/paperless/data:/usr/src/paperless/data
+      - CHANGE_TO_COMPOSE_DATA_PATH/paperless/media:/usr/src/paperless/media
+      - CHANGE_TO_COMPOSE_DATA_PATH/paperless/export:/usr/src/paperless/export
+      - CHANGE_TO_COMPOSE_DATA_PATH/consume:/usr/src/paperless/consume
     environment:
-      PAPERLESS_REDIS: redis://192.168.0.37:6379
-      PUID: 1024
-      PGID: 100
-      USERMAP_UID: 1024
-      USERMAP_GID: 100
+      PAPERLESS_REDIS: redis://192.168.178.207:6379
+      PUID: 1000
+      PGID: 1000
+      USERMAP_UID: 1000
+      USERMAP_GID: 1000
       PAPERLESS_TIME_ZONE: Europe/Berlin
       PAPERLESS_ADMIN_USER: admin
-      PAPERLESS_ADMIN_PASSWORD: GEHEIM
+      PAPERLESS_ADMIN_PASSWORD: GEHEIM # change in Browser! Check for hash!
       PAPERLESS_OCR_LANGUAGE: deu+eng
       PAPERLESS_TIKA_ENABLED: 1
-      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://192.168.0.35:3000
-      PAPERLESS_TIKA_ENDPOINT: http://192.168.0.36:9998
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://192.168.178.205:3000
+      PAPERLESS_TIKA_ENDPOINT: http://192.168.178.206:9998
     networks:
         default:
-            ipv4_address: 192.168.0.34
+            ipv4_address: 192.168.178.204
 
   gotenberg:
     image: gotenberg/gotenberg
@@ -75,7 +75,7 @@ services:
       - 3044:3000
     networks:
       default:
-        ipv4_address: 192.168.0.35
+        ipv4_address: 192.168.178.205
     command:
       - "gotenberg"
       - "--chromium-disable-routes=true"
@@ -87,12 +87,12 @@ services:
       - 9998:9998
     networks:
       default:
-        ipv4_address: 192.168.0.36
+        ipv4_address: 192.168.178.206
     restart: unless-stopped
 
 networks:
   default:
-    name: mvl
+    name: local_network # use MacVLAN Network
     external: true
 
 # volumes:
