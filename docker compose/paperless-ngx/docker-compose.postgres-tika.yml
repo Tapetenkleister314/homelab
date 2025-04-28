@@ -31,7 +31,7 @@
 
 services:
   redis:
-    image: docker.io/library/redis:8
+    image: docker.io/library/redis:latest
     container_name: paperless-redis
     restart: unless-stopped
 
