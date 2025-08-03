@@ -2,6 +2,9 @@ services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
+    networks:
+          homepage:
+            ipv4_address: 192.168.178.205  #Change this to your ip address
     environment:
       HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
     ports:
@@ -10,3 +13,7 @@ services:
       - CHANGE_TO_COMPOSE_DATA_PATH/homepage/config:/app/config # Make sure your local config directory exists
       #- CHANGE_TO_COMPOSE_DATA_PATH/var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
     restart: unless-stopped
+networks:
+   homepage:
+      name: local_network  #This is the name of our macvlan
+      external: true
