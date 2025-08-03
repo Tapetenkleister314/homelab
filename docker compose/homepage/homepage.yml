@@ -6,7 +6,7 @@ services:
           homepage:
             ipv4_address: 192.168.178.205  #Change this to your ip address
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      HOMEPAGE_ALLOWED_HOSTS=192.168.178.205:3000 # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
     ports:
       - 3000:3000
     volumes:
