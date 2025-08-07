@@ -13,6 +13,8 @@ services:
       - 3000:3000
     volumes:
       - CHANGE_TO_COMPOSE_DATA_PATH/homepage/config:/app/config # Make sure your local config directory exists
+      - CHANGE_TO_COMPOSE_DATA_PATH/homepage/images:/app/images
+      - CHANGE_TO_COMPOSE_DATA_PATH/homepage/icons:/app/icons
       - /var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
     restart: unless-stopped
 networks:
