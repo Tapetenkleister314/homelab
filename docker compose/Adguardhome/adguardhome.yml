@@ -25,18 +25,6 @@ services:
             - 8853:8853/udp
             - 5443:5443/tcp
             - 5443:5443/udp
-        labels:
-            -homepage.group=Netzwerk
-            -homepage.icon=adguard-home.svg
-            -homepage.href=https://adguard.domain.tld/ #change domain
-            -homepage.description=DNS Server
-            -homepage.server=server1-docker
-            -homepage.container=adguardhome
-            #-homepage.sitemonitor: https://adguard.domain.tld/ #change domain
-            -homepage.widget.type=adguard
-            -homepage.widget.url=https://adguard.domain.tld/ #change domain
-            -homepage.widget.username={{HOMEPAGE_VAR_ADGUARD_USERNAME}} #.env file
-            -homepage.widget.password={{HOMEPAGE_VAR_ADGUARD_PASSWORD}} #.env file
 
 networks:
    adguardhome:
