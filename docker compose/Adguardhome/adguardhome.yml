@@ -5,7 +5,7 @@ services:
         image: adguard/adguardhome
         networks:
           adguardhome:
-            ipv4_address: 192.168.178.202  #Change this to your ip address
+            ipv4_address: 192.168.178.203  #Change this to your ip address
         volumes:
             - CHANGE_TO_COMPOSE_DATA_PATH/adguardhome/workdir:/opt/adguardhome/work
             - CHANGE_TO_COMPOSE_DATA_PATH/adguardhome/confdir:/opt/adguardhome/conf
