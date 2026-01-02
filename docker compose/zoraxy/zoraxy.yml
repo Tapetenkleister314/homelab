@@ -19,7 +19,7 @@ services:
       DOCKER: "true"
     networks:
       zoraxy:
-         ipv4_address: 192.168.178.210 #Change this to a static on your network
+         ipv4_address: 192.168.178.230 #Change this to a static on your network
       proxy_network:
 networks:
   zoraxy:
