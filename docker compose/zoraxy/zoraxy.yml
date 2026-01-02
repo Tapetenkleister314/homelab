@@ -18,7 +18,7 @@ services:
       TZ: "Europe/Berlin"
       DOCKER: "true"
     networks:
-      nginx_proxy_manager:
+      zoraxy:
          ipv4_address: 192.168.178.210 #Change this to a static on your network
       proxy_network:
 networks:
