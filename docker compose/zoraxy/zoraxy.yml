@@ -3,16 +3,27 @@ services:
     image: zoraxydocker/zoraxy:latest
     container_name: zoraxy
     restart: unless-stopped
-    ports:
-      - 80:80
-      - 443:443
-      - 8000:8000
+#    ports:
+#      - 80:80
+#      - 443:443
+#      - 8000:8000
     volumes:
-      - /path/to/zoraxy/config/:/opt/zoraxy/config/
-      - /path/to/zoraxy/plugin/:/opt/zoraxy/plugin/
-      - /var/run/docker.sock:/var/run/docker.sock
+      - CHANGE_TO_COMPOSE_DATA_PATH/zoraxy/config/:/opt/zoraxy/config/
+      - CHANGE_TO_COMPOSE_DATA_PATH/zoraxy/plugin/:/opt/zoraxy/plugin/
+#      - /var/run/docker.sock:/var/run/docker.sock
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
       FASTGEOIP: "true"
       TZ: "Europe/Berlin"
+    networks:
+      nginx_proxy_manager:
+         ipv4_address: 192.168.178.210 #Change this to a static on your network
+      proxy_network:
+networks:
+  zoraxy:
+    name: local_network
+    external: true
+  proxy_network:
+    name: proxy_network
+    external: true
