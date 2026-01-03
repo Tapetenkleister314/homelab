@@ -10,7 +10,7 @@ services:
 #      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
       - CHANGE_TO_COMPOSE_DATA_PATH/homarr/appdata:/appdata
     environment:
-      - SECRET_ENCRYPTION_KEY=b916a9842eaa5a36d38c25a5601c3fa9a9b1daa37121ea9e9f4d71b5be746ba7
+      - SECRET_ENCRYPTION_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #generate in terminal  via "openssl rand -hex 32"
     ports:
       - 7575:7575
     networks:
