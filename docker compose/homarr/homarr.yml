@@ -17,6 +17,6 @@ services:
           homarr:
             ipv4_address: 192.168.178.222  #Change this to your ip address
 networks:
-   homarr:
+	homarr:
       name: local_network  #This is the name of our macvlan
       external: true
