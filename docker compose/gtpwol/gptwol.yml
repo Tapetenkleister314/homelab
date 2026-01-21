@@ -5,9 +5,9 @@ services:
     network_mode: host
     restart: unless-stopped
     environment:
-      - TZ=Europe/Paris #Set your timezone for Cron; default is UTC
-      #- PORT=5000 #Free Port on Your host; default is 5000
-      #- IP=0.0.0.0 #App listening IPV4 or IPV6 (ex [::]) address; default is 0.0.0.0
+      - TZ=Europe/Berlin #Set your timezone for Cron; default is UTC
+      - PORT=5000 #Free Port on Your host; default is 5000
+      - IP=192.168.178.233 #App listening IPV4 or IPV6 (ex [::]) address; default is 0.0.0.0
       #- LOG_LEVEL=INFO #Can be DEBUG, INFO, WARN or ERROR
       #- ENABLE_LOGIN=false # Enable or disable local login; You would be able to access with USERNAME and PASSWORD; default is false
       #- USERNAME=admin # Set a username; default is admin
@@ -28,5 +28,5 @@ services:
       #- ENABLE_L2_WOL_PACKET=false # Enable L2 WOL packet instead of L4, default is false
       #- L2_INTERFACE=eth0 # Set the default interface for L2 WOL (set this only if you set ENABLE_L2_WOL_PACKET to true), default is eth0
     volumes:
-      - ./appdata/db:/app/db
-      - ./appdata/cron:/etc/cron.d
+      - CHANGE_TO_COMPOSE_DATA_PATH/gptwol/db:/app/db
+      - HANGE_TO_COMPOSE_DATA_PATH/gptwol/cron:/etc/cron.d
