@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     environment:
       - TZ=Europe/Berlin #Set your timezone for Cron; default is UTC
-      - PORT=5000 #Free Port on Your host; default is 5000
-      - IP=192.168.178.233 #App listening IPV4 or IPV6 (ex [::]) address; default is 0.0.0.0
+      #- PORT=5000 #Free Port on Your host; default is 5000
+      #- IP=0.0.0.0 #App listening IPV4 or IPV6 (ex [::]) address; default is 0.0.0.0
       #- LOG_LEVEL=INFO #Can be DEBUG, INFO, WARN or ERROR
       #- ENABLE_LOGIN=false # Enable or disable local login; You would be able to access with USERNAME and PASSWORD; default is false
       #- USERNAME=admin # Set a username; default is admin
