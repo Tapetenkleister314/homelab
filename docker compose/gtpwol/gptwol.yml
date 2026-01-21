@@ -29,4 +29,4 @@ services:
       #- L2_INTERFACE=eth0 # Set the default interface for L2 WOL (set this only if you set ENABLE_L2_WOL_PACKET to true), default is eth0
     volumes:
       - CHANGE_TO_COMPOSE_DATA_PATH/gptwol/db:/app/db
-      - HANGE_TO_COMPOSE_DATA_PATH/gptwol/cron:/etc/cron.d
+      - CHANGE_TO_COMPOSE_DATA_PATH/gptwol/cron:/etc/cron.d
