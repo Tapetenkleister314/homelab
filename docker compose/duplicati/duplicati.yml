@@ -9,7 +9,7 @@ services:
       - PUID=0
       - PGID=0
       - TZ=Europe/Berlin
-      - SETTINGS_ENCRYPTION_KEY=
+      - SETTINGS_ENCRYPTION_KEY=changeme #change minimum 8 characters, alphanumeric
       - CLI_ARGS= #optional
       - DUPLICATI__WEBSERVICE_PASSWORD= #optional
     volumes:
