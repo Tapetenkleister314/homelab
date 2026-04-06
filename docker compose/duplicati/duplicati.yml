@@ -2,6 +2,9 @@ services:
   duplicati:
     image: lscr.io/linuxserver/duplicati:latest
     container_name: duplicati
+    networks:
+          duplicati:
+            ipv4_address: 192.168.178.206  #Change this to your ip address
     environment:
       - PUID=0
       - PGID=0
@@ -16,3 +19,7 @@ services:
     ports:
       - 8200:8200
     restart: unless-stopped
+networks:
+   duplicati:
+      name: local_network  #This is the name of our macvlan
+      external: true
