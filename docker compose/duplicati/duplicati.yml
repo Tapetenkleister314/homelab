@@ -12,7 +12,7 @@ services:
     volumes:
       - CHANGE_TO_COMPOSE_DATA_PATH/duplicati/config:/config
       #- /path/to/backups:/backups
-      - /path/to/source:/source
+      - CHANGE_TO_COMPOSE_DATA_PATH:/source/docker_compose
     ports:
       - 8200:8200
     restart: unless-stopped
